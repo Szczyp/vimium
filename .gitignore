@@ -10,3 +10,4 @@ jscoverage.json
 tags
 .cake_task_cache
 web-ext-artifacts/
+!web-ext-config.js
