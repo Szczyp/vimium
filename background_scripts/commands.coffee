@@ -165,6 +165,7 @@ Commands =
       "LinkHints.activateModeToOpenInNewForegroundTab",
       "LinkHints.activateModeWithQueue",
       "LinkHints.activateModeToDownloadLink",
+      "LinkHints.activateModeToPlayLinkInMpv",
       "LinkHints.activateModeToOpenIncognito",
       "LinkHints.activateModeToCopyLinkUrl",
       "goPrevious",
@@ -220,6 +221,7 @@ Commands =
     "Vomnibar.activateEditUrlInNewTab",
     "LinkHints.activateModeToOpenIncognito",
     "LinkHints.activateModeToCopyLinkUrl",
+    "LinkHints.activateModeToPlayLinkInMpv",
     "goNext",
     "goPrevious",
     "Marks.activateCreateMode",
@@ -357,6 +359,7 @@ commandDescriptions =
   "LinkHints.activateModeToOpenIncognito": ["Open a link in incognito window"]
   "LinkHints.activateModeToDownloadLink": ["Download link url"]
   "LinkHints.activateModeToCopyLinkUrl": ["Copy a link URL to the clipboard"]
+  "LinkHints.activateModeToPlayLinkInMpv": ["Play link in MPV"]
 
   enterFindMode: ["Enter find mode", { noRepeat: true }]
   performFind: ["Cycle forward to the next find match"]
