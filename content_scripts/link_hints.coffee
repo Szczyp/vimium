@@ -46,9 +46,18 @@ DOWNLOAD_LINK_URL =
   name: "download"
   indicator: "Download link URL"
   clickModifiers: altKey: true, ctrlKey: false, metaKey: false
+PLAY_LINK_IN_MPV =
+  name: "play-in-mpv"
+  indicator: "Play link in MPV"
+  linkActivator: (link) ->
+    if link.href?
+      chrome.runtime.sendMessage "{85873c09-6e78-47fd-b10d-8ac0ed005f2a}", {link: link.href}
+      url = link.href
+      url = url[0..25] + "...." if 28 < url.length
+      HUD.showForDuration "Playing #{url}", 2000
 
 availableModes = [OPEN_IN_CURRENT_TAB, OPEN_IN_NEW_BG_TAB, OPEN_IN_NEW_FG_TAB, OPEN_WITH_QUEUE, COPY_LINK_URL,
-  OPEN_INCOGNITO, DOWNLOAD_LINK_URL]
+  OPEN_INCOGNITO, DOWNLOAD_LINK_URL, PLAY_LINK_IN_MPV]
 
 HintCoordinator =
   onExit: []
@@ -140,6 +149,7 @@ LinkHints =
   activateModeWithQueue: -> @activateMode 1, mode: OPEN_WITH_QUEUE
   activateModeToOpenIncognito: (count) -> @activateMode count, mode: OPEN_INCOGNITO
   activateModeToDownloadLink: (count) -> @activateMode count, mode: DOWNLOAD_LINK_URL
+  activateModeToPlayLinkInMpv: -> @activateMode 1, mode: PLAY_LINK_IN_MPV
 
 class LinkHintsMode
   hintMarkerContainingDiv: null
