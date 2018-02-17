@@ -207,6 +207,7 @@ class VisualMode extends KeyHandlerMode
         @movement.collapseSelectionToFocus()
       new CaretMode
     "o": -> @movement.reverseSelection()
+    "gp": -> chrome.runtime.sendMessage handler: "playInMpv", url: @yank()
 
   constructor: (options = {}) ->
     @movement = new Movement options.alterMethod ? "extend"

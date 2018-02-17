@@ -151,6 +151,7 @@ Commands =
       "scrollToRight",
       "reload",
       "copyCurrentUrl",
+      "playCurrentUrlInMpv",
       "openCopiedUrlInCurrentTab",
       "openCopiedUrlInNewTab",
       "goUp",
@@ -165,6 +166,7 @@ Commands =
       "LinkHints.activateModeToOpenInNewForegroundTab",
       "LinkHints.activateModeWithQueue",
       "LinkHints.activateModeToDownloadLink",
+      "LinkHints.activateModeToPlayLinkInMpv",
       "LinkHints.activateModeToOpenIncognito",
       "LinkHints.activateModeToCopyLinkUrl",
       "goPrevious",
@@ -214,12 +216,14 @@ Commands =
     "moveTabToNewWindow",
     "goUp",
     "goToRoot",
+    "playCurrentUrlInMpv",
     "LinkHints.activateModeWithQueue",
     "LinkHints.activateModeToDownloadLink",
     "Vomnibar.activateEditUrl",
     "Vomnibar.activateEditUrlInNewTab",
     "LinkHints.activateModeToOpenIncognito",
     "LinkHints.activateModeToCopyLinkUrl",
+    "LinkHints.activateModeToPlayLinkInMpv",
     "goNext",
     "goPrevious",
     "Marks.activateCreateMode",
@@ -266,6 +270,7 @@ defaultKeyMappings =
   "F": "LinkHints.activateModeToOpenInNewTab"
   "<a-f>": "LinkHints.activateModeWithQueue"
   "yf": "LinkHints.activateModeToCopyLinkUrl"
+  "ys": "LinkHints.activateModeToDownloadLink"
 
   "/": "enterFindMode"
   "n": "performFind"
@@ -342,6 +347,7 @@ commandDescriptions =
   copyCurrentUrl: ["Copy the current URL to the clipboard", { noRepeat: true }]
   openCopiedUrlInCurrentTab: ["Open the clipboard's URL in the current tab", { noRepeat: true }]
   openCopiedUrlInNewTab: ["Open the clipboard's URL in a new tab", { repeatLimit: 20 }]
+  playCurrentUrlInMpv: ["Play the current URL in Mpv", { noRepeat: true }]
 
   enterInsertMode: ["Enter insert mode", { noRepeat: true }]
   passNextKey: ["Pass the next key to the page"]
@@ -357,6 +363,7 @@ commandDescriptions =
   "LinkHints.activateModeToOpenIncognito": ["Open a link in incognito window"]
   "LinkHints.activateModeToDownloadLink": ["Download link url"]
   "LinkHints.activateModeToCopyLinkUrl": ["Copy a link URL to the clipboard"]
+  "LinkHints.activateModeToPlayLinkInMpv": ["Play link in MPV"]
 
   enterFindMode: ["Enter find mode", { noRepeat: true }]
   performFind: ["Cycle forward to the next find match"]
