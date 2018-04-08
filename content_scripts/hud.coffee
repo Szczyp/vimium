@@ -114,6 +114,9 @@ HUD =
   unfocusIfFocused: ->
     document.activeElement.blur() if document.activeElement == @hudUI?.iframeElement
 
+  playInMpv: (url) ->
+    chrome.runtime.sendMessage "{85873c09-6e78-47fd-b10d-8ac0ed005f2a}", {link: url}
+
 class Tween
   opacity: 0
   intervalId: -1
