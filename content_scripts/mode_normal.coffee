@@ -100,6 +100,12 @@ NormalModeCommands =
     HUD.pasteFromClipboard (url) ->
       chrome.runtime.sendMessage { handler: "openUrlInCurrentTab", url }
 
+  playCurrentUrlInMpv: ->
+    chrome.runtime.sendMessage { handler: "getCurrentTabUrl" }, (url) ->
+      HUD.playInMpv url
+      url = url[0..25] + "...." if 28 < url.length
+      HUD.showForDuration("Playing #{url}", 2000)
+
   # Mode changes.
   enterInsertMode: ->
     # If a focusable element receives the focus, then we exit and leave the permanently-installed insert-mode
