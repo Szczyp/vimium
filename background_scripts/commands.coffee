@@ -151,6 +151,7 @@ Commands =
       "scrollToRight",
       "reload",
       "copyCurrentUrl",
+      "playCurrentUrlInMpv",
       "openCopiedUrlInCurrentTab",
       "openCopiedUrlInNewTab",
       "goUp",
@@ -215,6 +216,7 @@ Commands =
     "moveTabToNewWindow",
     "goUp",
     "goToRoot",
+    "playCurrentUrlInMpv",
     "LinkHints.activateModeWithQueue",
     "LinkHints.activateModeToDownloadLink",
     "Vomnibar.activateEditUrl",
@@ -268,6 +270,8 @@ defaultKeyMappings =
   "F": "LinkHints.activateModeToOpenInNewTab"
   "<a-f>": "LinkHints.activateModeWithQueue"
   "yf": "LinkHints.activateModeToCopyLinkUrl"
+  "ys": "LinkHints.activateModeToDownloadLink"
+  "yp": "LinkHints.activateModeToPlayLinkInMpv"
 
   "/": "enterFindMode"
   "n": "performFind"
@@ -277,6 +281,7 @@ defaultKeyMappings =
   "]]": "goNext"
 
   "yy": "copyCurrentUrl"
+  "yP": "playCurrentUrlInMpv"
 
   "p": "openCopiedUrlInCurrentTab"
   "P": "openCopiedUrlInNewTab"
@@ -344,6 +349,7 @@ commandDescriptions =
   copyCurrentUrl: ["Copy the current URL to the clipboard", { noRepeat: true }]
   openCopiedUrlInCurrentTab: ["Open the clipboard's URL in the current tab", { noRepeat: true }]
   openCopiedUrlInNewTab: ["Open the clipboard's URL in a new tab", { repeatLimit: 20 }]
+  playCurrentUrlInMpv: ["Play the current URL in Mpv", { noRepeat: true }]
 
   enterInsertMode: ["Enter insert mode", { noRepeat: true }]
   passNextKey: ["Pass the next key to the page"]
