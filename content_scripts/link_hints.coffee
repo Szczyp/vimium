@@ -50,8 +50,8 @@ PLAY_LINK_IN_MPV =
   indicator: "Play link in MPV"
   linkActivator: (link) ->
     if link.href?
-      HUD.playInMpv link.href
       url = link.href
+      chrome.runtime.sendMessage {handler: "playInMpv", url}
       url = url[0..25] + "...." if 28 < url.length
       HUD.showForDuration "Playing #{url}", 2000
 
