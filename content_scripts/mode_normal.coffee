@@ -102,7 +102,7 @@ NormalModeCommands =
 
   playCurrentUrlInMpv: ->
     chrome.runtime.sendMessage { handler: "getCurrentTabUrl" }, (url) ->
-      HUD.playInMpv url
+      chrome.runtime.sendMessage {handler: "playInMpv", url}
       url = url[0..25] + "...." if 28 < url.length
       HUD.showForDuration("Playing #{url}", 2000)
 
