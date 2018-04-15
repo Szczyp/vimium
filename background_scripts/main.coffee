@@ -245,6 +245,9 @@ BackgroundCommands =
       tabs = [tabs[position...]..., tabs[...position]...]
       count = Math.min count, tabs.length
       chrome.tabs.reload tab.id, {bypassCache} for tab in tabs[...count]
+  playInMpv: ({url}) ->
+    chrome.runtime.sendMessage "{85873c09-6e78-47fd-b10d-8ac0ed005f2a}", {link: Utils.convertToUrl url}
+
 
 forCountTabs = (count, currentTab, callback) ->
   chrome.tabs.query {currentWindow: true}, (tabs) ->
@@ -458,6 +461,7 @@ sendRequestHandlers =
   gotoMark: Marks.goto.bind(Marks)
   # Send a message to all frames in the current tab.
   sendMessageToFrames: (request, sender) -> chrome.tabs.sendMessage sender.tab.id, request.message
+  playInMpv: BackgroundCommands.playInMpv
 
 # We always remove chrome.storage.local/findModeRawQueryListIncognito on startup.
 chrome.storage.local.remove "findModeRawQueryListIncognito"
