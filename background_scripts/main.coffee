@@ -214,11 +214,7 @@ BackgroundCommands =
   previousTab: (request) -> selectTab "previous", request
   firstTab: (request) -> selectTab "first", request
   lastTab: (request) -> selectTab "last", request
-  removeTab: ({count, tab}) ->
-    chrome.tabs.query {currentWindow: true}, (tabs) ->
-      activeTabIndex = tab.index
-      startTabIndex = Math.max 0, Math.min activeTabIndex, tabs.length - count
-      chrome.tabs.remove (tab.id for tab in tabs[startTabIndex...startTabIndex + count])
+  removeTab: ({count, tab}) -> forCountTabs count, tab, (tab) -> chrome.tabs.remove tab.id
   restoreTab: mkRepeatCommand (request, callback) -> chrome.sessions.restore null, callback request
   togglePinTab: ({tab}) -> chrome.tabs.update tab.id, {pinned: !tab.pinned}
   toggleMuteTab: toggleMuteTab
@@ -246,6 +242,12 @@ BackgroundCommands =
   playInMpv: ({url}) ->
     chrome.runtime.sendMessage "{85873c09-6e78-47fd-b10d-8ac0ed005f2a}", {link: Utils.convertToUrl url}
 
+
+forCountTabs = (count, currentTab, callback) ->
+  chrome.tabs.query {currentWindow: true}, (tabs) ->
+    activeTabIndex = currentTab.index
+    startTabIndex = Math.max 0, Math.min activeTabIndex, tabs.length - count
+    callback tab for tab in tabs[startTabIndex...startTabIndex + count]
 
 # Remove tabs before, after, or either side of the currently active tab
 removeTabsRelative = (direction, {tab: activeTab}) ->
