@@ -327,8 +327,6 @@ getSpecialScrollingElement = ->
 
 specialScrollingElementMap =
   'twitter.com': 'div.permalink-container div.permalink[role=main]'
-  'reddit.com': '#overlayScrollContainer'
-  'new.reddit.com': '#overlayScrollContainer'
   'www.reddit.com': '#overlayScrollContainer'
 
 root = exports ? (window.root ?= {})
